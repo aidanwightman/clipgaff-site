@@ -8,5 +8,5 @@
   const q = new URLSearchParams(location.search);
   const code = q.get("code"), state = q.get("state"), err = q.get("error");
   document.getElementById("code").textContent = err ? ("Error: " + err + " – " + (q.get("error_description") || "")) : (code || "(no code in URL)");
-  if (code) location.replace("http://127.0.0.1:8788/tiktok/callback?" + q.toString());
+  if (code) location.replace("http://127.0.0.1:8787/tiktok/callback?" + q.toString());
 </script></body></html>
