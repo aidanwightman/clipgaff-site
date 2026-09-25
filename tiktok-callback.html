@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ClipGaff – TikTok connected</title>
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:720px;margin:40px auto;padding:0 16px;color:#222}code{display:block;padding:12px;background:#f4f4f4;border-radius:8px;word-break:break-all;font-size:14px}</style></head>
+<body><h1>ClipGaff – TikTok connected</h1>
+<p id="msg">Handing back to the ClipGaff tool…</p>
+<p>If nothing happens, copy this code and paste it into the ClipGaff tool:</p>
+<code id="code"></code>
+<script>
+  const q = new URLSearchParams(location.search);
+  const code = q.get("code"), state = q.get("state"), err = q.get("error");
+  document.getElementById("code").textContent = err ? ("Error: " + err + " – " + (q.get("error_description") || "")) : (code || "(no code in URL)");
+  if (code) location.replace("http://127.0.0.1:8788/tiktok/callback?" + q.toString());
+</script></body></html>
